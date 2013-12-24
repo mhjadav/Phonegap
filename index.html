@@ -1,44 +1,44 @@
 <html>
 <head></head>
-<body>  
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<body>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 
-<h2>Index</h2>
-<div>
-    <select id="method">
-        <option value="get">GET</option>
-        <option value="post">POST</option>
-        <option value="put">PUT</option>
-    </select>
-    <input type="button" value="Try it" onclick="sendRequest()" />
-    <span id='value1'>(Result)</span>
-</div>
+    <h2>Index</h2>
+    <div>
+        <select id="method">
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+        </select>
+        <input type="button" value="Try it" onclick="sendRequest()" />
+        <span id='value1'>(Result)</span>
+    </div>
 
-  <div>
-    <h2>All Products</h2>
-    <ul id="products" />
-  </div>
-<script>
-    var serviceUrl = 'http://localhost:47503/'; // Replace with your URI.
+    <div>
+        <h2>All Products</h2>
+        <ul id="products" />
+    </div>
+    <script>
+        var serviceUrl = 'http://localhost:47503/'; // Replace with your URI.
 
-    function sendRequest() {
-        var method = $('#method').val();
+        function sendRequest() {
+            var method = $('#method').val();
 
-        $.ajax({
-            type: method,
-            url: serviceUrl
-        }).done(function (data) {
-            var result = JSON.parse(data);
+            $.ajax({
+                type: method,
+                url: serviceUrl
+            }).done(function (data) {
+                var result = JSON.parse(data);
 
-            for (var i = 0; i < 10; i++) {
-                // Add a list item for the product.
+                for (var i = 0; i < 10; i++) {
+                    // Add a list item for the product.
 
-                $('<li>', { text: result[i].chrDescription + '  ' + result[i].chrSize + '  ' + result[i].dblListPrice }).appendTo($('#products'));
-            }
-        }).error(function (jqXHR, textStatus, errorThrown) {
-            $('#value1').text(jqXHR.responseText || textStatus);
-        });
-    }
-</script>
+                    $('' + i + '.  <li>', { text: result[i].chrDescription + '  ' + result[i].chrSize + '  ' + result[i].dblListPrice }).appendTo($('#products'));
+                }
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                $('#value1').text(jqXHR.responseText || textStatus);
+            });
+        }
+    </script>
 </body>
 </html>
