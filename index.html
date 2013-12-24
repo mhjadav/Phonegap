@@ -19,7 +19,7 @@
         <ul id="products" />
     </div>
     <script>
-        var serviceUrl = 'http://webapi.alpinehealthusa.com/'; // Replace with your URI.
+        var serviceUrl = 'http://localhost:47503/api/products'; // Replace with your URI.
 
         function sendRequest() {
             var method = 'get';
@@ -32,8 +32,8 @@
 
                 for (var i = 0; i < 10; i++) {
                     // Add a list item for the product.
-
-                    $('' + i + '.  <li>', { text: result[i].chrDescription + '  ' + result[i].chrSize + '  ' + result[i].dblListPrice }).appendTo($('#products'));
+                    $('#products').append('' + i +' <li>'+result[i].chrDescription + '  ' + result[i].chrSize + '  ' + result[i].dblListPrice );
+                    
                 }
             }).error(function (jqXHR, textStatus, errorThrown) {
                 $('#value1').text(jqXHR.responseText || textStatus);
