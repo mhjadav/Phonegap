@@ -1,0 +1,44 @@
+<html>
+<head></head>
+<body>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+    <h2>Index</h2>
+    <div>
+       <!-- <select id="method">
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+        </select>-->
+        <input type="button" value="Submit" onclick="sendRequest()" />
+        <span id='value1'>(Result)</span>
+    </div>
+
+    <div>
+        <h2>All Products</h2>
+        <ul id="products" />
+    </div>
+    <script>
+        var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products'; // Replace with your URI.
+
+        function sendRequest() {
+            var method = 'get';
+
+            $.ajax({
+                type: method,
+                url: serviceUrl
+            }).done(function (data) {
+                var result = JSON.parse(data);
+
+                for (var i = 0; i < 10; i++) {
+                    // Add a list item for the product.
+                    $('#products').append('' + i +' <li>'+result[i].chrDescription + '  ' + result[i].chrSize + '  ' + result[i].dblListPrice );
+                    
+                }
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                $('#value1').text(jqXHR.responseText || textStatus);
+            });
+        }
+    </script>
+</body>
+</html>
