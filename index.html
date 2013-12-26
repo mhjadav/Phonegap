@@ -24,12 +24,11 @@
             <input type="submit" id="login" value="Login" />
         </fieldset>
 
-<<<<<<< HEAD
     </section>
     <script type="text/javascript">
         $('#login').click(function () {
             var method = 'post';
-            var serviceUrl = 'http://localhost:47503/api/products/login';
+            var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products/login';
             $.ajax({
                 type: method,
                 url: serviceUrl,
@@ -58,7 +57,7 @@
             <option value="post">POST</option>
             <option value="put">PUT</option>
         </select>-->
-        <input type="button" value="Submit" onclick="sendRequest()" />
+   <!--     <input type="button" value="Submit" onclick="sendRequest()" />
         <span id='value1'>(Result)</span>
     </div>
 
@@ -68,7 +67,7 @@
     </div>
     <script>
         var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products'; // Replace with your URI.
->>>>>>> eed47182945b649b61e71ef0b48d92aff5f30acc
+
 
         function sendRequest() {
             var method = 'get';
