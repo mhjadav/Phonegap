@@ -28,11 +28,11 @@
     <script type="text/javascript">
         $('#login').click(function () {
             var method = 'post';
-            var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products/login';
+            var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products/login?username='+$('#username').val()+'&password='+$('#password').val();
             $.ajax({
                 type: method,
                 url: serviceUrl,
-                data: { 'username': $('#username').val(), 'password': $('#password').val() }
+                data: {  }
             }).done(function (data) {
                 var result = JSON.parse(data);
                 if (result) {
