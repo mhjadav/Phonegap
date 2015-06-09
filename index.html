@@ -1,92 +1,86 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Alpine Health Login</title>
-    <link href="style.css" rel="stylesheet" />
-
+	<link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<style type="text/css">
+		body {
+  padding-top: 50px;
+}
+	</style>
 </head>
-<body>
-    <script src="jquery-2.0.3.min.js"></script>
-    <section class="content-wrapper main-content clear-fix">
-        <fieldset>
-            <legend>Login</legend>
-            <div class="editor-label">
-                <label>Username</label>
-            </div>
-            <div class="editor-field">
-                <input type="text" id="username" placeholder="Username" />
-            </div>
-            <div class="editor-label">
-                <label>Password</label>
-            </div>
-            <div class="editor-field">
-                <input type="password" id="password" placeholder="Password" />
-            </div>
-            <input type="submit" id="login" value="Login" />
-        </fieldset>
-
-    </section>
-    <script type="text/javascript">
-        $('#login').click(function () {
-            var method = 'post';
-            var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products/login?username='+$('#username').val()+'&password='+$('#password').val();
-            $.ajax({
-                type: method,
-                url: serviceUrl,
-                data: {  }
-            }).done(function (data) {
-                var result = JSON.parse(data);
-                if (result) {
-                    alert('Success');
-                 document.location.href = "home.html";
-                }
-
-            }).error(function (jqXHR, textStatus, errorThrown) {
-                alert('Failed');
-                $('#value1').text(jqXHR.responseText || textStatus);
-            });
-        });
-
-    </script>
-    <!--<script>
-        var serviceUrl = 'http://localhost:47503/api/products'; // Replace with your URI.
-=======
-    <h2>Index</h2>
-    <div>
-       <!-- <select id="method">
-            <option value="get">GET</option>
-            <option value="post">POST</option>
-            <option value="put">PUT</option>
-        </select>-->
-   <!--     <input type="button" value="Submit" onclick="sendRequest()" />
-        <span id='value1'>(Result)</span>
+<body ng-app="todoApp" ng-controller="todoController">
+		
+	   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<div class="container-fluid">
+	<div class="row">
+	<div  class="col-xs-12">
+      <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td class="col-xs-1">
+    			<input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+          </td>
+          <td class="col-xs-10">
+          Mark</td>
+          <td class="col-xs-1"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
+        </tr>
+        <tr class="active">
+          <td class="col-xs-1">
+    			<input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+          </td>
+          <td class="col-xs-10">
+          Mark</td>
+          <td class="col-xs-1"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
+        </tr>
+        <tr>
+          <td class="col-xs-1">
+    			<input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+          </td>
+          <td class="col-xs-10">
+          Mark</td>
+          <td class="col-xs-1"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
+        </tr>
+      </tbody>
+    </table>
     </div>
+</div>
+    </div><!-- /.container -->
+     <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container-fluid" style="  padding-top: 7px;">
+      		<div class="row">
+			  <div class="col-xs-10">
+			    <input type="text" class="form-control" placeholder="Add Task">
+			  </div>
+			  <div class="col-xs-1">
+			  	<button type="button" class="btn btn-primary">Add</button>
 
-    <div>
-        <h2>All Products</h2>
-        <ul id="products" />
-    </div>
-    <script>
-        var serviceUrl = 'http://webapi.alpinehealthusa.com/api/products'; // Replace with your URI.
+			  </div>
+			  </div>
+      </div>
 
-
-        function sendRequest() {
-            var method = 'get';
-
-            $.ajax({
-                type: method,
-                url: serviceUrl
-            }).done(function (data) {
-                var result = JSON.parse(data);
-
-                for (var i = 0; i < 10; i++) {
-                    // Add a list item for the product.
-                    $('#products').append('' + i +' <li>'+result[i].chrDescription + '  ' + result[i].chrSize + '  ' + result[i].dblListPrice );
-                    
-                }
-            }).error(function (jqXHR, textStatus, errorThrown) {
-                $('#value1').text(jqXHR.responseText || textStatus);
-            });
-        }
-    </script>-->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
